@@ -7,15 +7,15 @@ from dotenv import load_dotenv
 load_dotenv()
 
 from langchain_openai import ChatOpenAI, OpenAIEmbeddings
-from langchain.chains.qa_with_sources.retrieval import RetrievalQAWithSourcesChain
+from langchain.chains import RetrievalQAWithSourcesChain
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_community.document_loaders import UnstructuredURLLoader
 from langchain_community.vectorstores import FAISS
 
-# Read API Key
+# Read OpenAI API Key
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
-# If using Streamlit Cloud Secrets
+# If running on Streamlit Cloud, read from Secrets
 if not OPENAI_API_KEY:
     OPENAI_API_KEY = st.secrets["OPENAI_API_KEY"]
 
@@ -34,10 +34,11 @@ process_button = st.sidebar.button("Process URLs")
 
 FILE_PATH = "faiss_store.pkl"
 
+# Initialize LLM
 llm = ChatOpenAI(
     model="gpt-3.5-turbo",
     temperature=0.3,
-    api_key=OPENAI_API_KEY
+    openai_api_key=OPENAI_API_KEY
 )
 
 placeholder = st.empty()
