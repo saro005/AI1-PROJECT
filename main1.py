@@ -39,7 +39,7 @@ st.write("Length:", len(OPENAI_API_KEY) if OPENAI_API_KEY else 0)
 
 try:
     llm = ChatOpenAI(
-        model_name="gpt-3.5-turbo",
+        model="gpt-4o-mini",
         temperature=0.3,
         api_key=OPENAI_API_KEY
     )
