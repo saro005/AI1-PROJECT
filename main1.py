@@ -39,9 +39,9 @@ st.write("Length:", len(OPENAI_API_KEY) if OPENAI_API_KEY else 0)
 
 # Initialize LLM
 llm = ChatOpenAI(
-    model="gpt-3.5-turbo",
+    model_name="gpt-3.5-turbo",
     temperature=0.3,
-    openai_api_key=OPENAI_API_KEY
+    api_key=OPENAI_API_KEY
 )
 
 placeholder = st.empty()
