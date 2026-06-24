@@ -37,11 +37,12 @@ st.write("OPENAI_API_KEY:", OPENAI_API_KEY)
 st.write("Type:", type(OPENAI_API_KEY))
 st.write("Length:", len(OPENAI_API_KEY) if OPENAI_API_KEY else 0)
 
-# Initialize LLM
-llm = ChatOpenAI(
-    model_name="gpt-3.5-turbo",
-    temperature=0.3,
-    api_key=OPENAI_API_KEY
-)
-
+try:
+    llm = ChatOpenAI(
+        model_name="gpt-3.5-turbo",
+        temperature=0.3,
+        api_key=OPENAI_API_KEY
+    )
+except Exception as e:
+    st.exception(e)
 placeholder = st.empty()
