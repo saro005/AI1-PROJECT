@@ -1,9 +1,10 @@
-streamlit
-python-dotenv
-langchain
-langchain-community
-langchain-openai
-openai
+streamlit==1.45.1
+langchain==0.2.17
+langchain-community==0.2.19
+langchain-openai==0.1.25
+openai==1.52.2
 faiss-cpu
 unstructured
+python-dotenv
 tiktoken
+lxml
