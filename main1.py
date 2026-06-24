@@ -33,6 +33,9 @@ for i in range(3):
 process_button = st.sidebar.button("Process URLs")
 
 FILE_PATH = "faiss_store.pkl"
+st.write("OPENAI_API_KEY:", OPENAI_API_KEY)
+st.write("Type:", type(OPENAI_API_KEY))
+st.write("Length:", len(OPENAI_API_KEY) if OPENAI_API_KEY else 0)
 
 # Initialize LLM
 llm = ChatOpenAI(
